@@ -773,6 +773,9 @@ header .loc-nav{
     }   
 
 #form .form-grid{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 64px 32px 64px 32px;
     position: relative;
     display: grid;
@@ -782,17 +785,21 @@ header .loc-nav{
     "a c"
     "b c"
     "d d";
+    gap: 80px;
     }
 
         /* Formulario */
 #form .formulario{
     grid-area: a;
+    min-width: 100%;
     max-width: 640px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
     column-gap: 40px;
     row-gap: 24px;
+    justify-self: center;
+    
     }
 
 #form .formulario input{
@@ -822,76 +829,99 @@ header .loc-nav{
     
 #form .formulario .nombre{
     grid-column: 1 / 3;
-    grid-row: 1;
-    
-}
+    grid-row: 1; 
+    }
 #form .formulario .ciudad{
     grid-column: 3 / 5;
     grid-row: 1;
-} 
+    } 
 #form .formulario .email{
     grid-column: 1 / 3;
     grid-row: 2;
-}    
+    }    
 #form .formulario .telefono{
     grid-column: 3 / 5;
     grid-row: 2;
-}   
+    }   
 #form .formulario .asunto{
     grid-column: 1 / 5;
     grid-row: 3;
-}   
+    }   
 #form .formulario .consulta{
     grid-column: 1 / 5;
     grid-row: 4;
-}  
+    }  
 #form .formulario .consulta textarea{
     width: 100%;
     height: 80%;
-}  
+    }  
 #form .formulario .terminos{
     grid-column: 1 / 4;
     grid-row: 5; 
-} 
+    } 
 #form .formulario .terminos input{
     width: auto; 
     display: inline-block;
       
-} 
+    } 
 #form .formulario .terminos label{
     display: inline-block;
-    transform: translateY(-12px);
-      
-} 
+    transform: translateY(-12px);     
+    } 
 #form .formulario .enviar{
     grid-column: 4 / 5;
     grid-row: 5; 
-}  
+    }  
 
     /* Tabla */
 
 #form .tabla{
     grid-area: b;
-    max-width: 640px;
-    border-spacing: 0px;
+    min-width: 100%;
+    max-width: 640px; 
+    justify-self: center; 
+    }
+
+#form .tabla table{
     border-collapse: collapse;
-   
-    
-    
-}
-#form .tabla tr{
-   padding: 0;
-   margin: 0; 
- 
-}
+    }
 
 #form .tabla td{
-    border-collapse: collapse;
     border: 1px solid #333;
-    
-   
-    
+    padding: 8px;  
+    }
+
+#form .tabla th{
+    border: 1px solid #333;
+    padding: 8px; 
+    }
+
+    /* Info contacto  */
+
+#form .c-info{
+    grid-area: c;
+
 }
+
+#form .c-info .fsocial{
+    justify-content: flex-start;
+}
+
+#form .c-info h1{
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    }
+
+#form .c-info p{
+    font-size: 1rem;s
+    font-family: 'pt serif', sans-serif;
+    font-weight: 400;
+    }  
+    
+
 
 
 /*--------------------*/
@@ -928,7 +958,7 @@ footer .fmap{
     display: flex;
     justify-content: end;
     align-items: end;
-    font-size: 1.4rem;
+    font-size: 14px;
     padding-bottom: 12px;
     }
 
@@ -937,7 +967,7 @@ footer .fmain{
     grid-row: 2 / 3;
     padding: 20px 0px 0px 50px;
     font-family: 'Droid serif';
-    font-size: 1.2rem;
+    font-size: 12px;
     }
 
 footer .fstamps{
@@ -957,8 +987,7 @@ footer .fstamps img{
     footer .fstamps img:nth-child(2){
     max-height: 50PX;
     }
-
-footer .fsocial{
+.fsocial{
     grid-column: 4 / 5;
     grid-row: 4 / 5;
     display: flex;
@@ -968,7 +997,7 @@ footer .fsocial{
     padding-bottom: 10px;
     }
 
-footer .fsocial img{
+.fsocial img{
     max-height: 25px;
     }
 
@@ -982,4 +1011,48 @@ footer .fname{
     height: 40px;
     font-family: 'Oswald', sans-serif;
     }
-    
+
+/*---------------------------*/   
+/* Media query 425px - 768px */
+/*---------------------------*/  
+
+    @media only screen and (min-width: 425px) and (max-width: 768px) {
+        #form .form-grid {
+          width: 80%;      
+          padding: 64px 32px 64px 32px;
+          position: relative;
+          display: grid;
+          grid-template-rows: 1fr auto auto auto;
+          grid-template-columns: 1fr;
+          grid-template-areas: 
+            "a"
+            "b"
+            "c"
+            "d";
+          gap: 80px;
+        }
+
+        #form .c-info .fsocial{
+            justify-content: center;
+        }
+
+        #form .c-info li{
+            text-align: center;
+        }
+
+    }
+
+/*---------------------------*/   
+/* Media query 425px - 768px */
+/*---------------------------*/  
+
+@media only screen and (max-width: 425px) {
+    #form{
+        font-size: 12px;
+    }
+
+
+
+}
+
+
